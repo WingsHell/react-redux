@@ -13,12 +13,17 @@ const MessageItem = (props) => {
     const {username, message} = props.message;
 
     return (
-        <div className="card p-2 m-2" style={itemStyle}>
-            <div className="card-body text-white">
-                <small>@{username}</small>
-                <div>
-                    <Emoji text={message}/>
+        <div className="card p-0 m-2" style={itemStyle}>
+            <div className="card-body p-2 text-white">
+                <div className="row" style={{ display: 'flex', padding: 10 }}>
+                    <div className="col-2 pr-4" style={{borderRight:'2px solid white'}}>
+                        <small>@{username}</small>
+                    </div>
+                    <div className="col-10 pl-4">
+                        <Emoji text={message}/>
+                    </div>
                 </div>
+                
             </div>
         </div>   
     )

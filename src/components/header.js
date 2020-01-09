@@ -31,13 +31,23 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="nav-right nav-menu">
-                            <div className="nav-item">
-                                <p className="control">{
-                                    !logged ? <NavLink exact activeClassName="active" to="/login">
-                                        <button className="btn btn-light is-primary is-outlined" type="button">Inscritpion</button></NavLink>
-                                    : <button className="btn btn-light is-primary is-outlined" onClick="">Logout</button>
-                                    }   
-                                </p>
+                            <div className="nav-item"> {
+                                !logged ?   <ul className="navbar-nav mr-auto pr-4">
+                                                <li id="nav-login" className="nav-item pr-4" >
+                                                    <NavLink exact activeClassName="active" to="/login">
+                                                        <button className="btn btn-light is-primary is-outlined" type="button">Inscritpion</button></NavLink>
+                                                </li>
+                                            </ul>
+                                    :   <ul className="navbar-nav mr-auto pr-4">
+                                            <li id="nav-login" className="nav-item pr-4" >
+                                                <NavLink exact activeClassName="active" to="/chat">
+                                                        <button className="btn btn-light is-primary is-outlined" type="button">Chat</button></NavLink>
+                                            </li>
+                                            <li id="nav-chat" className="nav-item pr-4" >
+                                                <button className="btn btn-light is-primary is-outlined" onClick="">Logout</button>
+                                            </li>
+                                        </ul>
+                                }
                             </div>
                         </div>
                     </div>
