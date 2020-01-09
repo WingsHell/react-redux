@@ -8,21 +8,27 @@ const INITIAL_STATE = {
     username: '',
     messages: [],
     logged: false,
+    creaDate: null,
     error: null
   };
 
-const user = (state = INITIAL_STATE, action) => {
+const userLogged = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case ADD_USER:
             return {
                 ...state, 
                 username: action.username,
-                logged: true
+                logged: true,
+                creaDate: new Date().toLocaleString()
             };
 
         case LOGOUT_USER:
             return {
-                user: state.user
+                username: '',
+                messages: [],
+                logged: false,
+                creaDate: null,
+                error: null
             };
 
         case ADD_USER_MESSAGE:
@@ -33,21 +39,9 @@ const user = (state = INITIAL_STATE, action) => {
                     action.message]
             };
 
-        case LOAD_USER_SUCCES:
-            return {
-                ...state,
-            };
-
-        case LOAD_USER_ERROR:
-            return {
-                ...state,
-                error: action.error,
-                logged: false
-            }
-
         default:
             return state
     }
 }
 
-export default user;
+export default userLogged;

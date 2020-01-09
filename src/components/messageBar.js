@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux'
 import { addMessage } from '../redux/actions/message';
-import { addUserMessage } from '../redux/actions/user';
+import { addUserMessage } from '../redux/actions/userLogged';
 //import { useSelector } from 'react-redux';
 
 const cardStyle = {
@@ -42,7 +42,7 @@ const cardStyle = {
         const [message, setMessage] = useState("");
 
         const dispatch = useDispatch();
-        const username = useSelector(state => state.user.username);
+        const username = useSelector(state => state.userLogged.username);
 
         const handleChange = (e) => {
             e.preventDefault();

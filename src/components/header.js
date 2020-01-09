@@ -2,21 +2,24 @@ import React from 'react';
 import './header.css';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutUser } from './../redux/actions/user';
+import { logoutUser } from '../redux/actions/userLogged';
+import { saveUser } from './../redux/actions/userSaved';
 
 
 const Header = () => {
 
-    const logged = useSelector(state => state.user.logged);
-    const username = useSelector(state => state.user.username);
+    const logged = useSelector(state => state.userLogged.logged);
+    const userLogger = useSelector(state => state.userLogged);
 
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (username) {
-            dispatch(logoutUser(username));
+        if (userLogger.username) {
+            dispatch(saveUser(userLogger));
+            dispatch(logoutUser(userLogger.username));
+            
         }
     }
 

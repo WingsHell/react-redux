@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const App = () => {
 
-  const logged = useSelector(state => state.user.logged);
+  const logged = useSelector(state => state.userLogged.logged);
 
     return (
           <Router>

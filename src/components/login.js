@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { addUser } from '../redux/actions/user';
+import { addUser } from '../redux/actions/userLogged';
 import { Link } from 'react-router-dom';
 
 const cardStyle = {
@@ -20,6 +20,7 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const dispatch = useDispatch();
     //const history = useHistory();
+    
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -47,12 +48,12 @@ const Login = () => {
                         <div className="form-group row">
                             <label className="col-sm-4 col-form-label text-white pl-3 pr-0" htmlFor="username"><u id="username">Username :</u></label>
                             <div className="col-sm-8 pl-0">
-                                <input  className="form-control pl-0" onChange={handleChange} name="username" type="text" placeholder="votre nom ici" required />
+                                <input  className="form-control pl-0" value={username} onChange={handleChange} name="username" type="text" placeholder="votre nom ici" required />
                             </div>
                         </div>
                     </div>
                     <div className="card-footer text-center">
-                        <button onClick={handleSubmit} type="submit" className="btn btn-card btn-primary"><Link to="/chat" style={{color:"white"}}>Connexion</Link></button>
+                        <button onClick={handleSubmit} type="submit" disabled={!username} className="btn btn-card btn-primary"><Link to="/chat" style={{color:"white"}}>Connexion</Link></button>
                     </div>
                 </div> 
             </div>

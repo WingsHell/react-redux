@@ -4,7 +4,7 @@ import Chat from '../components/chat';
 const mapStateToProps = (state) => {
     return {
         chat: state.chat,
-        user: state.user
+        userLogged: state.userLogged
     };
 };
 

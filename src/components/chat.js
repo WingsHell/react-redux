@@ -35,7 +35,7 @@ const mapDispatchToProps =  {
     
 const Chat = ({addMessage, getMessages}) => {
 
-    const userLogged = useSelector(state => state.user.logged);
+    const userLogged = useSelector(state => state.userLogged.logged);
 
     useEffect( () => {
         getMessages();
