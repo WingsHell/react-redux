@@ -13,7 +13,6 @@ const cardStyle = {
     backgroundColor: "transparent",
     fontSize: 16,
     padding: 10,
-    marginRight: 10,
     flexGrow: 1,
   };
 
@@ -63,7 +62,7 @@ const cardStyle = {
             <form>
                 <div className="card" style={cardStyle}>
                     <div className="card-footer"style={cardStyle}>
-                        <div className="form-group" style={{ display: 'flex', padding: 10 }}>
+                        <div className="form-group" style={{ display: 'flex', padding: 11 }}>
                             <input type="text" className="form-control pl-4" placeholder="Votre message"
                                 autoFocus={true} style={inputStyle} value={message.body} onChange={handleChange} name="message" />
                             <br />
