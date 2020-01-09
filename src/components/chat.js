@@ -2,25 +2,31 @@ import React, { useEffect } from 'react';
 import MessageList from './messageList';
 import MessageBar from './messageBar';
 import { addMessage } from '../redux/actions/message'
-import { connect } from'react-redux';
+import { connect, useSelector } from'react-redux';
 import { getMessages } from './../redux/actions/message';
+import { Redirect } from 'react-router-dom';
+import img from '../img/img.png';
 
 const chatStyle = {
     borderRadius: 10,
     fontFamily: "Montserrat",
-    backgroundColor: "#343a40",
+    backgroundImage:`url(${img})`,
+    backgroundSize: "auto",
+    backgroundRepeat  : 'no-repeat',
+    backgroundPosition: 'center',
+    //backgroundColor: "#343a40",
     padding: 10,
     display: "flex",
     flexDirection: "column"
   };
 
 
-const mapStateToProps = (state) => {
+/*const mapStateToProps = (state) => {
     return {
         chat: state.chat,
         user: state.user
     };
-};
+};*/
 
 const mapDispatchToProps =  {
     addMessage,
@@ -29,12 +35,18 @@ const mapDispatchToProps =  {
     
 const Chat = ({addMessage, getMessages}) => {
 
+    const userLogged = useSelector(state => state.user.logged);
+
     useEffect( () => {
         getMessages();
     }, [getMessages]);
 
+    if(!userLogged) {
+        return <Redirect to ="/" />;
+    }
+    
     return (
-        <div className="container">
+        <div className="container p-4">
             <div className="card p-3 m-2" style={chatStyle}>
                 <div className="card-title">
                     <center><h2 className="text-white">JoliChat</h2></center>
@@ -48,4 +60,4 @@ const Chat = ({addMessage, getMessages}) => {
     )
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Chat)
+export default connect(null,mapDispatchToProps)(Chat)

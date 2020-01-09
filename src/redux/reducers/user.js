@@ -1,4 +1,5 @@
 import { ADD_USER } from '../constants/actionTypes';
+import { ADD_USER_MESSAGE } from '../constants/actionTypes';
 import { LOAD_USER_SUCCES } from '../constants/actionTypes';
 import { LOAD_USER_ERROR } from '../constants/actionTypes';
 
@@ -16,6 +17,14 @@ const user = (state = INITIAL_STATE, action) => {
                 ...state, 
                 username: action.username,
                 logged: true
+            };
+
+        case ADD_USER_MESSAGE:
+            return {
+                ...state, 
+                messages: [
+                    ...state.messages,
+                    action.message]
             };
 
         case LOAD_USER_SUCCES:

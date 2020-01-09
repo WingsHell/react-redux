@@ -4,12 +4,13 @@ import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux'
 import { addMessage } from '../redux/actions/message';
+import { addUserMessage } from '../redux/actions/user';
 //import { useSelector } from 'react-redux';
 
 const cardStyle = {
     borderRadius: 10,
     border: 'none',
-    backgroundColor: "#343a40",
+    backgroundColor: "transparent",
     fontSize: 16,
     padding: 10,
     marginRight: 10,
@@ -57,6 +58,7 @@ const cardStyle = {
             e.preventDefault();
             if (message) {
                 dispatch(addMessage(username, message));
+                dispatch(addUserMessage(message));
                 setMessage("");
             }
         }
