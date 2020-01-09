@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import Movies from './components/movies';
 import Login from './components/login';
-import Header from './containers/Header';
+import Chat from './components/chat';
+import Movies from './components/movies';
+import Header from './components/header';
 import { Provider } from 'react-redux'
 import store from './redux/store/store';
 class App extends Component {
@@ -21,22 +23,16 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className="container-fluid">
-          <Login></Login>
-        </div>
+        <Header />
+            <Router>
+              <Route exact path="/" component={Login} />
+              <Route path="/movies" component={Movies} />
+              <Route path="/chat" component={Chat} />
+            </Router>
       </Provider>
       
     )
   }
-  // render() {
-  //   return (
-  //     <Provider store={store}>
-  //       <Header></Header>
-  //     </Provider>
-      
-  //   )
-  // }
-
 }
 
 export default App;

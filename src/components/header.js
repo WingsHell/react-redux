@@ -1,11 +1,7 @@
 import React from 'react';
 import './header.css';
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom';
-import App from '../App';
-import Login from '../components/login';
-import Chat from '../components/chat';
-import { Provider } from 'react-redux'
-import store from '../redux/store/store';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
+
 
 const Header = () => {
 
@@ -14,7 +10,7 @@ const Header = () => {
             <nav className="navbar has-shadow navbar-expand navbar-dark bg-dark py-0 px-0 mb-0">
                 <div className="container flex p-2">
                     <div className="navbar-text nav-left text-black">
-                        <p className="nav-item">React Redux Cours Ipssi</p>
+                        <p className="nav-item" style={{marginTop:"revert"}}>React Redux Cours Ipssi</p>
                     </div>
                     <div className="row justify-content-md-right flex">
                         <div className="nav-right nav-menu">
@@ -33,7 +29,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="nav-right nav-menu">
-                            <div className="nav-item pr-4">
+                            <div className="nav-item">
                                 <p className="control">
                                     <Link to="/login">
                                         <button className="btn btn-light is-primary is-outlined" type="button">Inscritpion</button>
@@ -41,18 +37,10 @@ const Header = () => {
                                 </p>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </nav>
-            <Provider store={store}>
-                <div className="container-fluid">
-                    
-                        <Route exact path="/" component={App} />
-                        <Route path="/inscription" component={Login} />
-                        <Route path="/chat" component={Chat} />
-                    
-                </div>
-            </Provider>
         </Router>
         
     )

@@ -32,24 +32,26 @@ const Login = () => {
         }
     }
 
-
     return (
-        <div className="container p-4 mr-auto">
-            <div className="card" style={cardStyle}>
-                <div className="card-title">
-                    <p className= "text-center text-white m-0">Inscrivez vous au chat !</p>
-                </div>
-                <div className="card-body" style={{margin:5, padding:0}}>
-                    <div className="form-group">
-                        <label className="text-white" for="username"><u id="username">Username :</u></label>
-                        <input  className="form-control" onChange={handleChange} name="username" type="text" placeholder="votre nom ici" required />
+        <form>
+            <div className="container p-4 mr-auto">
+                <div className="card" style={cardStyle}>
+                    <div className="card-title">
+                        <p className= "text-center text-white m-0">Inscrivez vous au chat !</p>
                     </div>
-                </div>
-                <div className="card-footer text-center">
-                    <button onClick={handleSubmit} type="submit" class="btn btn-card btn-primary" click="">Connexion</button>
-                </div>
-            </div> 
-        </div>
+                    <div className="card-body" style={{margin:5, padding:0}}>
+                        <div className="form-group">
+                            <label className="text-white" htmlFor="username"><u id="username">Username :</u></label>
+                            <input  className="form-control" onChange={handleChange} name="username" type="text" placeholder="votre nom ici" required />
+                        </div>
+                    </div>
+                    <div className="card-footer text-center">
+                        <button onClick={handleSubmit} type="submit" className="btn btn-card btn-primary" click="">Connexion</button>
+                    </div>
+                </div> 
+            </div>
+        </form>
+        
              
         
     )

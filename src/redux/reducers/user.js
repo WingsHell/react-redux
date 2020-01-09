@@ -4,6 +4,7 @@ import { LOAD_USER_ERROR } from '../constants/actionTypes';
 
 const INITIAL_STATE = {
     username: '',
+    messages: [],
     logged: false,
     error: null
   };
@@ -13,13 +14,13 @@ const user = (state = INITIAL_STATE, action) => {
         case ADD_USER:
             return {
                 ...state, 
-                username: action.username
+                username: action.username,
+                logged: true
             };
 
         case LOAD_USER_SUCCES:
             return {
                 ...state,
-                logged: true
             };
 
         case LOAD_USER_ERROR:
