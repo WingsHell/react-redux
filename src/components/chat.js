@@ -5,7 +5,7 @@ import { addMessage } from '../redux/actions/message'
 import { connect, useSelector } from'react-redux';
 import { getMessages } from './../redux/actions/message';
 import { Redirect } from 'react-router-dom';
-import img from '../img/img.png';
+import img from '../img/fond.jpg';
 
 const chatStyle = {
     borderRadius: 10,

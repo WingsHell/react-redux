@@ -36,10 +36,6 @@ const cardStyle = {
     flex-grow: 1;
     border: 3px solid #343a40;
     background-color: transparent;
-    &:hover {
-        border: 3px solid white;
-        background-color: 3px solid black;
-    }
   `;
 
     const MessageBar = () => {
@@ -68,10 +64,10 @@ const cardStyle = {
                 <div className="card" style={cardStyle}>
                     <div className="card-footer"style={cardStyle}>
                         <div className="form-group" style={{ display: 'flex', padding: 10 }}>
-                            <input type="text" className="form-control" placeholder="Votre message"
+                            <input type="text" className="form-control pl-4" placeholder="Votre message"
                                 autoFocus={true} style={inputStyle} value={message.body} onChange={handleChange} name="message" />
                             <br />
-                            <span className="float-right" ><SendButton onClick={handleSubmit} type="submit" >envoyer</SendButton></span>
+                            <span className="float-right pl-4" ><SendButton onClick={handleSubmit} type="submit" >envoyer</SendButton></span>
                         </div>
                     </div>
                 </div>
