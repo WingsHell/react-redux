@@ -8,29 +8,18 @@ import Header from './components/header';
 import { Provider } from 'react-redux'
 import store from './redux/store/store';
 class App extends Component {
- 
-  state = {
-    movies: []
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      movies: []
-    }
-  }
 
   render() {
     return (
       <Provider store={store}>
-        <Header />
-            <Router>
-              <Route exact path="/" component={Login} />
-              <Route path="/movies" component={Movies} />
-              <Route path="/chat" component={Chat} />
-            </Router>
+          <Router>
+          <Header />
+            <Route path="/" redirect="/login"/>
+            <Route exact path="/login" component={Login} />
+            <Route path="/movies" component={Movies} />
+            <Route path="/chat" component={Chat} />
+          </Router>
       </Provider>
-      
     )
   }
 }

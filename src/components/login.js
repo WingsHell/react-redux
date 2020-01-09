@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import { useDispatch } from 'react-redux'
 import { addUser } from '../redux/actions/user';
+import { Link } from 'react-router-dom';
 
 const cardStyle = {
     borderRadius: 10,
@@ -40,20 +41,21 @@ const Login = () => {
                         <p className= "text-center text-white m-0">Inscrivez vous au chat !</p>
                     </div>
                     <div className="card-body" style={{margin:5, padding:0}}>
-                        <div className="form-group">
-                            <label className="text-white" htmlFor="username"><u id="username">Username :</u></label>
-                            <input  className="form-control" onChange={handleChange} name="username" type="text" placeholder="votre nom ici" required />
+                        <div className="form-group row">
+                            <label className="col-sm-4 col-form-label text-white pl-3 pr-0" htmlFor="username"><u id="username">Username :</u></label>
+                            <div className="col-sm-8 pl-0">
+                                <input  className="form-control pl-0" onChange={handleChange} name="username" type="text" placeholder="votre nom ici" required />
+                            </div>
                         </div>
                     </div>
                     <div className="card-footer text-center">
-                        <button onClick={handleSubmit} type="submit" className="btn btn-card btn-primary" click="">Connexion</button>
+                        <Link to="/chat">
+                            <button onClick={handleSubmit} type="submit" className="btn btn-card btn-primary">Connexion</button>
+                        </Link>
                     </div>
                 </div> 
             </div>
         </form>
-        
-             
-        
     )
 
 }
