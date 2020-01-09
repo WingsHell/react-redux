@@ -1,12 +1,24 @@
 import React from 'react';
 import './header.css';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from './../redux/actions/user';
 
 
 const Header = () => {
 
     const logged = useSelector(state => state.user.logged);
+    const username = useSelector(state => state.user.username);
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (username) {
+            dispatch(logoutUser(username));
+        }
+    }
 
     return(
             <nav className="navbar has-shadow navbar-expand navbar-dark bg-dark py-0 px-0 mb-0">
@@ -44,7 +56,7 @@ const Header = () => {
                                                         <button className="btn btn-light is-primary is-outlined" type="button">Chat</button></NavLink>
                                             </li>
                                             <li id="nav-chat" className="nav-item pr-4" >
-                                                <button className="btn btn-light is-primary is-outlined" onClick="">Logout</button>
+                                                <button className="btn btn-light is-primary is-outlined" onClick={handleSubmit} type="submit">Logout</button>
                                             </li>
                                         </ul>
                                 }

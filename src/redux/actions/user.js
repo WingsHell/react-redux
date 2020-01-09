@@ -9,3 +9,8 @@ export const addUserMessage = (message) => ({
     type: types.ADD_USER_MESSAGE,
     message,
 })
+
+export const logoutUser = (username) => ({
+    type: types.LOGOUT_USER,
+    username,
+})
