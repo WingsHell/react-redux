@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.css';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const Header = () => {
@@ -16,9 +16,9 @@ const Header = () => {
                             <div className="nav-item pr-4">
                                 <ul className="navbar-nav mr-auto pr-4">
                                     <li id="nav-movies" className="nav-item pr-4" >
-                                        <Link to ="/movies">
+                                        <NavLink activeClassName="active" to="/movies">
                                             <button className="btn btn-light" type="button">Movies</button>
-                                        </Link>
+                                        </NavLink>
                                     </li>
                                     <li id="nav-movies" className="nav-item pr-4" >
                                         <span></span>
@@ -30,9 +30,9 @@ const Header = () => {
                         <div className="nav-right nav-menu">
                             <div className="nav-item">
                                 <p className="control">
-                                    <Link to="/login">
+                                    <NavLink exact activeClassName="active" to="/login">
                                         <button className="btn btn-light is-primary is-outlined" type="button">Inscritpion</button>
-                                    </Link>
+                                    </NavLink>
                                 </p>
                             </div>
                         </div>

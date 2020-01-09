@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 //import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addMessage } from '../redux/actions/message';
 //import { useSelector } from 'react-redux';
 
@@ -46,7 +46,7 @@ const cardStyle = {
         const [message, setMessage] = useState("");
 
         const dispatch = useDispatch();
-        //const loading = useSelector(state => state.chat.messages.loading);
+        const username = useSelector(state => state.user.username);
 
         const handleChange = (e) => {
             e.preventDefault();
@@ -56,7 +56,6 @@ const cardStyle = {
         const handleSubmit = (e) => {
             e.preventDefault();
             if (message) {
-                const username = "Toms"
                 dispatch(addMessage(username, message));
                 setMessage("");
             }

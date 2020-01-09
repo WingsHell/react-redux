@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { addUser } from '../redux/actions/user';
 import { Link } from 'react-router-dom';
@@ -19,6 +19,7 @@ const Login = () => {
 
     const [username, setUsername] = useState("");
     const dispatch = useDispatch();
+    //const history = useHistory();
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -27,9 +28,11 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         if (username) {
             dispatch(addUser(username));
             setUsername("");
+            //history.push('/chat');
         }
     }
 
@@ -49,9 +52,7 @@ const Login = () => {
                         </div>
                     </div>
                     <div className="card-footer text-center">
-                        <Link to="/chat">
-                            <button onClick={handleSubmit} type="submit" className="btn btn-card btn-primary">Connexion</button>
-                        </Link>
+                        <button onClick={handleSubmit} type="submit" className="btn btn-card btn-primary"><Link to="/chat" style={{color:"white"}}>Connexion</Link></button>
                     </div>
                 </div> 
             </div>

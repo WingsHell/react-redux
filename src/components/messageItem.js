@@ -12,7 +12,6 @@ const MessageItem = (props) => {
 
     const {username, message} = props.message;
 
-
     return (
         <div className="card p-2 m-2" style={itemStyle}>
             <div className="card-body text-white">

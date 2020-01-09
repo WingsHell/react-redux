@@ -17,7 +17,8 @@ const chatStyle = {
 
 const mapStateToProps = (state) => {
     return {
-        chat: state.chat
+        chat: state.chat,
+        user: state.user
     };
 };
 
@@ -26,7 +27,7 @@ const mapDispatchToProps =  {
     getMessages
 }
     
-const Chat = ({chat, addMessage, getMessages}) => {
+const Chat = ({addMessage, getMessages}) => {
 
     useEffect( () => {
         getMessages();
@@ -39,7 +40,7 @@ const Chat = ({chat, addMessage, getMessages}) => {
                     <center><h2 className="text-white">JoliChat</h2></center>
                 </div>
                 <div className="card-body">
-                    <MessageList messages={chat.messages}/>
+                    <MessageList />
                 </div>
                 <MessageBar addMessage={addMessage}/>
             </div> 
