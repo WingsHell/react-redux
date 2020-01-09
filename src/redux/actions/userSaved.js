@@ -6,8 +6,8 @@ export const addUser = (user) => ({
 })
 
 export const getUser = (username) => ({
-    type: types.GET_USER,
-    username,
+    type: types.LOAD_USER,
+    username
 })
 
 export const addUserMessage = (message) => ({

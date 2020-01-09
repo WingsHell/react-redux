@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { addUser } from '../redux/actions/userLogged';
+import { getUser } from '../redux/actions/userSaved';
 import { Link } from 'react-router-dom';
 
 const cardStyle = {
@@ -15,12 +16,27 @@ const cardStyle = {
     margin: 'auto'
   };
 
-const Login = () => {
+const mapStateToProps = (state) => {
+    return {
+        chat: state.chat,
+        userLogged: state.userLogged
+    };
+};
+
+const mapDispatchToProps = {
+    getUser
+};
+
+const Login = ({getUser}) => {
 
     const [username, setUsername] = useState("");
     const dispatch = useDispatch();
     //const history = useHistory();
-    
+
+    //const userSaved = useSelector(state => state.userSaved.users);
+    useEffect( () => {
+        getUser();
+    }, [getUser]);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -29,7 +45,8 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        dispatch(getUser(username))
+        
         if (username) {
             dispatch(addUser(username));
             setUsername("");
@@ -62,4 +79,4 @@ const Login = () => {
 
 }
 
-export default Login;
+export default connect(mapStateToProps,mapDispatchToProps)(Login)

@@ -1,14 +1,13 @@
 import { ADD_USER } from '../constants/actionTypes';
 import { LOGOUT_USER } from '../constants/actionTypes';
 import { ADD_USER_MESSAGE } from '../constants/actionTypes';
-import { LOAD_USER_SUCCES } from '../constants/actionTypes';
-import { LOAD_USER_ERROR } from '../constants/actionTypes';
 
 const INITIAL_STATE = {
     username: '',
     messages: [],
     logged: false,
     creaDate: null,
+    loading: false,
     error: null
   };
 
@@ -19,7 +18,8 @@ const userLogged = (state = INITIAL_STATE, action) => {
                 ...state, 
                 username: action.username,
                 logged: true,
-                creaDate: new Date().toLocaleString()
+                creaDate: new Date().toLocaleString(),
+                loading: false
             };
 
         case LOGOUT_USER:

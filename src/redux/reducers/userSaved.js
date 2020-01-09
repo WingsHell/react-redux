@@ -1,12 +1,14 @@
-import { GET_USER } from '../constants/actionTypes';
+import { LOAD_USER } from '../constants/actionTypes';
 import { SAVE_USER } from '../constants/actionTypes';
-import { LOAD_USER_PENDING } from '../constants/actionTypes';
-import { LOAD_USER_SUCCES } from '../constants/actionTypes';
-import { LOAD_USER_ERROR } from '../constants/actionTypes';
+import { LOAD_USERS_PENDING } from '../constants/actionTypes';
+import { LOAD_USERS_SUCCES } from '../constants/actionTypes';
+import { LOAD_USERS_ERROR } from '../constants/actionTypes';
 
 
 const INITIAL_STATE = {
-    users: []
+    users: [],
+    loading: false,
+    error: null
 };
 
 const userSaved = (state = INITIAL_STATE, action) => {
@@ -24,28 +26,26 @@ const userSaved = (state = INITIAL_STATE, action) => {
                 ]
             }
 
-        case LOAD_USER_PENDING:
+        case LOAD_USERS_PENDING:
             return {
                 ...state,
                 loading: true
             };
         
-        case GET_USER:
+        case LOAD_USER:
             return {
-                username: action.user.username,
-                message: action.user.messages,
-                logged: true,
-                creaDate: action.user.creaDate,
+                users: state.users.filter((username) => username !== action.username),
+                loading: false
             };
 
-        case LOAD_USER_ERROR:
+        case LOAD_USERS_ERROR:
             return {
                 ...state,
                 error: action.error,
                 logged: false
             }
         
-        case LOAD_USER_SUCCES:
+        case LOAD_USERS_SUCCES:
             return {
                 ...state,
             };
