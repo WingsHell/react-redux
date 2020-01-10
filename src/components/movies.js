@@ -25,8 +25,8 @@ const movieStyle = {
     backgroundColor: "white",
     opacity: 0.7,
     fontSize: 16,
-    padding: 10,
     flexGrow: 1,
+    padding: 10,
     marginBottom: 5,
     marginLeft: 30,
     marginRight: 30,
@@ -53,7 +53,7 @@ const Movies = ({ movies, getMovies }) => {
             <center><h1>Movie List</h1></center>
             {movies.map((movie) => (
                 <div className="card" key={movie.Title} style={cardStyle}>
-                    <div className="card-body">
+                    <div className="card-body p-2">
                     <h5 className="card-title">{movie.Title}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">{movie.Year}</h6>
                     <p className="card-text">{movie.Type}</p>
