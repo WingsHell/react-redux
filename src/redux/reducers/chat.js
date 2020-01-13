@@ -42,6 +42,7 @@ const chat = (state = INITIAL_STATE, action) => {
 
         case LOAD_MESSAGE_SUCCES:
             return {
+                ...state,
                 messages: action.messages,
                 loading: false
             };

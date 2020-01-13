@@ -1,5 +1,6 @@
 import { connect } from'react-redux';
 import Chat from '../components/chat';
+import Main from './../components/main';
 
 const mapStateToProps = (state) => {
     return {
@@ -8,5 +9,5 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, null)(Chat)
+export default connect(mapStateToProps, null)(Chat, Main)
 

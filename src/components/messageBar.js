@@ -64,7 +64,7 @@ const cardStyle = {
                     <div className="card-footer"style={cardStyle}>
                         <div className="form-group" style={{ display: 'flex', padding: 11 }}>
                             <input type="text" className="form-control pl-4" placeholder="Votre message"
-                                autoFocus={true} style={inputStyle} value={message.body} onChange={handleChange} name="message" />
+                                autoFocus={true} style={inputStyle} value={message} onChange={handleChange} name="message" />
                             <br />
                             <span className="float-right pl-4" ><SendButton onClick={handleSubmit} type="submit" >envoyer</SendButton></span>
                         </div>

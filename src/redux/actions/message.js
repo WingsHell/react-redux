@@ -4,7 +4,7 @@ import * as types from '../constants/actionTypes';
 export const addMessage = (username,message) => ({
     type: types.ADD_MESSAGE,
     username,
-    message,
+    message
 })
 
 // export const addMessage = ({username, message, sentAt}) => {
@@ -32,6 +32,7 @@ export const getMessages = () => {
         return fetch("https://my-json-server.typicode.com/tlenclos/formation-react-fake-server/messages")
                 .then(response => response.json())
                 .then(json => {
+                  console.log(json);
                     dispatch({type: types.LOAD_MESSAGE_SUCCES, messages: json})
                 })
                 .catch(err => dispatch({type: types.LOAD_MESSAGE_ERROR, error: err}))
