@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Login from './components/login';
-import Chat from './components/chat';
+import Main from './components/main';
 import Movies from './components/movies';
 import Header from './components/header';
 import { useSelector } from 'react-redux';
@@ -21,11 +21,11 @@ const App = () => {
               }
               </Route>
               <Route path="/login">{
-                  logged ? <Redirect to="/chat" /> : <Login />
+                  logged ? <Redirect to="/main/chat" /> : <Login />
                 }
               </Route>
+              <Route path="/main" component={Main} />
               <Route path="/movies" component={Movies} />
-              <Route path="/chat" component={Chat} />
             </Switch>
              
           </Router>

@@ -55,7 +55,7 @@ const Header = () => {
                                             </ul>
                                     :   <ul className="navbar-nav mr-auto pr-4">
                                             <li id="nav-login" className="nav-item pr-4" >
-                                                <NavLink exact activeClassName="active" to="/chat">
+                                                <NavLink exact activeClassName="active" to="/main/chat">
                                                         <button className="btn btn-light is-primary is-outlined" type="button">Chat</button></NavLink>
                                             </li>
                                             <li id="nav-chat" className="nav-item pr-4" >
