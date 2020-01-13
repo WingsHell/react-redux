@@ -23,8 +23,10 @@ const chat = (state = INITIAL_STATE, action) => {
                 messages: [
                     ...state.messages,
                     {   username: action.username,
-                        message : action.message  }
-                    ]  
+                        message : action.message,
+                        sentAt: new Date(action.sentAt ? action.sentAt : new Date())
+                    }
+                ]  
             };
 
         case REMOVE_MESSAGE:

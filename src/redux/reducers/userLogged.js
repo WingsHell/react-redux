@@ -36,7 +36,10 @@ const userLogged = (state = INITIAL_STATE, action) => {
                 ...state, 
                 messages: [
                     ...state.messages,
-                    action.message]
+                    {
+                        message : action.message,
+                        sentAt: new Date(action.sentAt ? action.sentAt : new Date())
+                    }]
             };
 
         default:

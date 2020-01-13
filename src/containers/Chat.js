@@ -8,5 +8,5 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(Chat)
+export default connect(mapStateToProps, null)(Chat)
 

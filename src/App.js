@@ -6,6 +6,7 @@ import Chat from './components/chat';
 import Movies from './components/movies';
 import Header from './components/header';
 import { useSelector } from 'react-redux';
+import 'moment-timezone';
 
 const App = () => {
 

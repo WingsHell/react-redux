@@ -1,11 +1,25 @@
 import * as types from '../constants/actionTypes';
+//import websocket from "../../services/websocket";
 
 export const addMessage = (username,message) => ({
     type: types.ADD_MESSAGE,
     username,
-    message
-    
+    message,
 })
+
+// export const addMessage = ({username, message, sentAt}) => {
+//     return (dispatch) => {
+//       const action = {
+//         type: 'ADD_MESSAGE',
+//         username,
+//         message,
+//         sentAt
+//       };
+//       websocket.send(JSON.stringify(action));
+  
+//       return dispatch(action);
+//     };
+//   };
 
 export const removeMessage = index => ({
     type: types.REMOVE_MESSAGE,

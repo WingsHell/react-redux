@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { addUser } from '../redux/actions/userLogged';
 import { getUser } from '../redux/actions/userSaved';
 import { Link } from 'react-router-dom';

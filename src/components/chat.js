@@ -14,19 +14,10 @@ const chatStyle = {
     backgroundSize: "auto",
     backgroundRepeat  : 'no-repeat',
     backgroundPosition: 'center',
-    //backgroundColor: "#343a40",
     padding: 10,
     display: "flex",
     flexDirection: "column"
   };
-
-
-/*const mapStateToProps = (state) => {
-    return {
-        chat: state.chat,
-        user: state.user
-    };
-};*/
 
 const mapDispatchToProps =  {
     addMessage,
